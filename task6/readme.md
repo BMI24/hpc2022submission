@@ -6,8 +6,10 @@
 
 ## Task 6.2.1
 
-`ldr x1, [x0, #8]!` loads a 64 bit (x1=extended (64 bit) view of the register) value from memory at the address stored in register `x0` (which is the first input value for the kernel) AFTER incrementing `x0` by 8 (bytes). This is called a pre-increment/pre-indexed immediate offset. Basicaly `x1=x0+8; x1=memory[x1];` 
+`ldr x1, [x0, #8]!` loads a 64 bit (x1=extended (64 bit) view of the register) value from memory at the address stored in register `x0` (which is the first input value for the kernel) AFTER incrementing `x0` by 8 (bytes). This is called a pre-increment/pre-indexed immediate offset. Basicaly `x1=x0+8; x1=memory[x1];`
+
 `ldp x2, x3, [x0]` loads two consecutive 64 bit values (a pair) from memory at the address stored in register `x0` (which is still changed by the last command). Basicaly `x2=memory[x0]; x3=memory[x0+8]`. `x1` and `x2` should contain the same value now.
+
 `ldp x4, x5, [x0, #16]` loads two consecutive 64 bit values from memory at the adress stored in register `x0` + 16 bytes (without changing `x0`). Basicaly `x4=memory[x0+16]; x5=memory[x0+16+8]`.
 
 The driver initializes `l_a` as `[100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]` and passes `l_a+2` into the kernel as `x0`, which points to value 300 in the array. As each value is 8 bytes/64 bits long, we get the following values in the registers:
