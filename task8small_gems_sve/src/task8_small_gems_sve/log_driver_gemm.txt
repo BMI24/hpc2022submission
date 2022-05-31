@@ -1,0 +1,7 @@
+Max error of gemm_asm_sve_128_6_48: 0. Test passed.
+Max error of gemm_asm_sve_128_48_48: 1.66952e+38. Test failed.
+gemm_asm_sve_128_6_48
+  #executions: 2000000
+  Time (s): 1.823
+  GFLOPS:80.8865
+  %peak:70.2139
